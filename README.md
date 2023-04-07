@@ -35,6 +35,15 @@ The final software application developed based on the UI/UX design includes the 
 <img src="/screenshots/splashscreen.gif" width="250"/> <img src="/screenshots/login.gif" width="250"/>
 <img src="/screenshots/lessons.gif" height="530"/>
 
+## ✍ The Team
+
+- [Camille](https://github.com/camillecamillecamillee)
+- [Shian Wei](https://github.com/LiewShianWei)
+- [Pui Shan](https://github.com/shan-liory)
+- [Rachael](https://github.com/rmk525)
+- [Hui Wen](https://github.com/hwen01)
+- [Pamela](https://github.com/pamela-khoo)
+
 ## License
 Distributed under the MIT License. 
 
