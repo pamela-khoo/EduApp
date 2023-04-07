@@ -11,6 +11,8 @@ This project was developed following scope from the ACM 2018 CHI Conference on H
 - To encourage and motivate children from a young age to enjoy learning.
 </p>
 
+This project was built with Android Studio (Java 8) and Firebase.
+
 ## 🍭 Design Process
 To ensure the app was suitable and engaging for young children, our team conducted UX research and came up with design solutions by:
 - Sketching the draft design of key user interfaces based on the proposed functional requirements;
@@ -25,7 +27,13 @@ To ensure the app was suitable and engaging for young children, our team conduct
 
 ## 📌 Features
 The final software application developed based on the UI/UX design includes the following functions:
+- Registration & Login
+- Lessons & Quizzes 
+- Mini Games
+- Streak System
 
+<img src="/screenshots/splashscreen.gif" width="250"/> <img src="/screenshots/login.gif" width="250"/>
+<img src="/screenshots/lessons.gif" height="530"/>
 
 ## ✍ The Team
 
@@ -35,4 +43,7 @@ The final software application developed based on the UI/UX design includes the 
 - [Rachael](https://github.com/rmk525)
 - [Hui Wen](https://github.com/hwen01)
 - [Pamela](https://github.com/pamela-khoo)
+
+## License
+Distributed under the MIT License. 
 
