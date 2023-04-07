@@ -23,7 +23,7 @@ To ensure the app was suitable and engaging for young children, our team conduct
 ![Figma Prototype](/screenshots/figma.png)
 ![Figma Prototype](/screenshots/figma_2.png)
 
-*The full <b>High-Fidelity Prototype</b> of our app can be accessed from [here](https://www.figma.com/proto/W1oq9er5jz3lZyLY83wMTh/EduApp---Kidooze?node-id=253-104&scaling=scale-down&page-id=1%3A10&starting-point-node-id=38%3A8&show-proto-sidebar=1)*
+*The full <b>High-Fidelity Prototype</b> of our app can be found [here](https://www.figma.com/proto/W1oq9er5jz3lZyLY83wMTh/EduApp---Kidooze?node-id=253-104&scaling=scale-down&page-id=1%3A10&starting-point-node-id=38%3A8&show-proto-sidebar=1)*
 
 ## 📌 Features
 The final software application developed based on the UI/UX design includes the following functions:
