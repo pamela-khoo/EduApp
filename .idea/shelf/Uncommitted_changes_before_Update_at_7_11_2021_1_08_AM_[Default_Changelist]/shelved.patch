@@ -1,0 +1,200 @@
+Index: app/src/main/java/com/example/eduapp/RegisterFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.eduapp;\r\n\r\nimport static android.app.Activity.RESULT_OK;\r\n\r\nimport android.app.ProgressDialog;\r\nimport android.content.ContentResolver;\r\nimport android.content.Intent;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.os.Handler;\r\nimport android.provider.MediaStore;\r\nimport android.text.TextUtils;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.webkit.MimeTypeMap;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.navigation.Navigation;\r\n\r\nimport com.google.android.gms.tasks.Continuation;\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.OnSuccessListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.firebase.auth.AuthResult;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\nimport com.google.firebase.database.Logger;\r\nimport com.google.firebase.firestore.DocumentReference;\r\nimport com.google.firebase.firestore.FirebaseFirestore;\r\nimport com.google.firebase.storage.FirebaseStorage;\r\nimport com.google.firebase.storage.StorageReference;\r\nimport com.google.firebase.storage.UploadTask;\r\nimport com.squareup.picasso.Picasso;\r\n\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\n\r\npublic class RegisterFragment extends Fragment {\r\n\r\n    String regex = \"^[A-Za-z0-9+_.-]+@(.+)$\";\r\n    TextView haveAccount;\r\n    ImageView profileImage_register;\r\n    EditText editText_name_register, editText_dob_register, editText_email_register, editText_password_register;\r\n    ImageView register_back_btn;\r\n    Button register_btn;\r\n    FirebaseAuth mAuth;\r\n    FirebaseUser mUser;\r\n    Uri imageUri;\r\n    UploadTask uploadTask;\r\n    StorageReference storageReference;\r\n    DatabaseReference databaseReference;\r\n    FirebaseDatabase database = FirebaseDatabase.getInstance();\r\n    FirebaseFirestore db = FirebaseFirestore.getInstance();\r\n    DocumentReference documentReference;\r\n    ProgressDialog progressDialog;\r\n    User user;\r\n    private static final int PICK_IMAGE = 1;\r\n   String currentUserId;\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        // Inflate the layout for this fragment\r\n        return inflater.inflate(R.layout.activity_register, container, false);\r\n    }\r\n\r\n    @Override\r\n    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {\r\n        super.onViewCreated(view, savedInstanceState);\r\n        user = new User();\r\n        haveAccount = view.findViewById(R.id.haveAccount_text);\r\n        editText_name_register = view.findViewById(R.id.editText_name_register);\r\n        editText_dob_register = view.findViewById(R.id.editText_dob_register);\r\n        editText_email_register = view.findViewById(R.id.editText_email_register);\r\n        editText_password_register = view.findViewById(R.id.editText_password_register);\r\n        register_back_btn = view.findViewById(R.id.register_back_btn);\r\n        register_btn = view.findViewById(R.id.register_btn);\r\n        profileImage_register = view.findViewById(R.id.profileImage_register);\r\n        progressDialog = new ProgressDialog(getContext());\r\n\r\n        mAuth = FirebaseAuth.getInstance();\r\n\r\n\r\n        register_back_btn.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                requireActivity().onBackPressed();\r\n            }\r\n        });\r\n\r\n        haveAccount.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                // startActivity(new Intent(RegisterActivity.this, LoginActivity.class));\r\n            }\r\n        });\r\n\r\n        profileImage_register.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);\r\n                startActivityForResult(openGallery,PICK_IMAGE);\r\n            }\r\n        });\r\n\r\n\r\n        register_btn.setOnClickListener(new View.OnClickListener() {\r\n\r\n            @Override\r\n            public void onClick(View v) {\r\n                AuthenticateUser();\r\n            }\r\n        });\r\n\r\n    }\r\n    @Override\r\n    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n        try{\r\n            if (requestCode == PICK_IMAGE || resultCode == RESULT_OK || data!=null || data.getData() != null){\r\n                imageUri = data.getData();\r\n\r\n                Picasso.get().load(imageUri).into(profileImage_register);\r\n            }\r\n        }\r\n        catch(Exception e){\r\n            Toast.makeText(getContext(), \"Choose an image!\" , Toast.LENGTH_SHORT).show();\r\n\r\n        }\r\n\r\n    }\r\n\r\n    private String getFileExt(Uri uri){\r\n        ContentResolver contentResolver = getContext().getContentResolver();\r\n        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();\r\n        return mimeTypeMap.getExtensionFromMimeType((contentResolver.getType(uri)));\r\n    }\r\n\r\n//    private void uploadData() {\r\n//        String username = editText_name_register.getText().toString();\r\n//        String email = editText_email_register.getText().toString();\r\n//        String dob = editText_dob_register.getText().toString();\r\n//\r\n//        if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(dob) && !TextUtils.isEmpty(email) && imageUri != null){\r\n//            final StorageReference reference = storageReference.child(System.currentTimeMillis() + \".\"+ getFileExt(imageUri));\r\n//            uploadTask = reference.putFile(imageUri);\r\n//\r\n//\r\n//            Task<Uri> uriTask= uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {\r\n//                @Override\r\n//                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {\r\n//                    if (!task.isSuccessful()){\r\n//                        throw  task.getException();\r\n//                    }\r\n//                    return reference.getDownloadUrl();\r\n//                }\r\n//            }).addOnCompleteListener(new OnCompleteListener<Uri>() {\r\n//                @Override\r\n//                public void onComplete(@NonNull Task<Uri> task) {\r\n//                    if (task.isSuccessful()){\r\n//                        Uri downloadUri = task.getResult();\r\n//\r\n//                        Map <String,String> profile = new HashMap<>();\r\n//                        profile.put(\"name\" ,username);\r\n//                        profile.put(\"email\",email);\r\n//                        profile.put(\"dob\",dob);\r\n//                        profile.put(\"url\", downloadUri.toString());\r\n//\r\n//                        //profile.put(\"privacy\", \"Public\");\r\n//\r\n//                        user.setDob(dob);\r\n//                        user.setEmail(email);\r\n//                        user.setUsername(username);\r\n//                        user.setUid(currentUserId);\r\n//                        user.getUrl(downloadUri.toString());\r\n//\r\n//                        databaseReference.push().setValue(user);\r\n//\r\n//                        documentReference.set(profile)\r\n//                                .addOnSuccessListener(new OnSuccessListener<Void>() {\r\n//                                    @Override\r\n//                                    public void onSuccess(Void unused) {\r\n//\r\n//                                        Toast.makeText(getContext(), \"Profile Created\", Toast.LENGTH_SHORT).show();\r\n//\r\n//\r\n//                                        Handler handler = new Handler();\r\n//                                        handler.postDelayed(new Runnable() {\r\n//                                            @Override\r\n//                                            public void run() {\r\n//                                                Navigation.findNavController(getView()).navigate(R.id.action_registerFragment_to_navigation_home);\r\n//                                            }\r\n//                                        },2000);\r\n//                                    }\r\n//                                });\r\n//\r\n//                    }\r\n//                }\r\n//            });\r\n//\r\n//        }else{\r\n//            Toast.makeText(getContext(), \"Please fill all fields\", Toast.LENGTH_SHORT).show();\r\n//        }\r\n//\r\n//    }\r\n\r\n    private void AuthenticateUser() {\r\n\r\n\r\n        String email = editText_email_register.getText().toString();\r\n        String name = editText_name_register.getText().toString();\r\n        String dob = editText_dob_register.getText().toString();\r\n        String password = editText_password_register.getText().toString();\r\n\r\n\r\n\r\n        if (!email.matches(regex)) {\r\n            editText_email_register.setError(\"Enter valid email\");\r\n        } else if (password.isEmpty() || password.length() < 6) {\r\n            editText_password_register.setError(\"Enter proper password\");\r\n        }\r\n       else if(dob.isEmpty()){\r\n            editText_dob_register.setError(\"Enter your Date of Birth\");\r\n        }\r\n        else if(name.isEmpty()){\r\n            editText_name_register.setError(\"Enter your name\");\r\n        }\r\n        else if (imageUri == null){\r\n            Toast.makeText(getContext(), \"Choose an image!\" , Toast.LENGTH_SHORT).show();\r\n        }\r\n        else {\r\n            progressDialog.setMessage(\"Please wait for registration\");\r\n            progressDialog.setTitle(\"Registration\");\r\n            progressDialog.setCanceledOnTouchOutside(false);\r\n\r\n            progressDialog.show();\r\n\r\n            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {\r\n                @Override\r\n                public void onComplete(@NonNull Task<AuthResult> task) {\r\n                    if (task.isSuccessful()) {\r\n\r\n                        mUser = mAuth.getCurrentUser();\r\n                        currentUserId = mUser.getUid();\r\n\r\n                        documentReference = db.collection(\"User\").document(currentUserId);\r\n                        storageReference = FirebaseStorage.getInstance().getReference(\"Profile images\");\r\n                        databaseReference = database.getReference(\"All Users\");\r\n\r\n                        final StorageReference reference = storageReference.child(System.currentTimeMillis() + \".\" + getFileExt(imageUri));\r\n                        uploadTask = reference.putFile(imageUri);\r\n\r\n\r\n                        Task<Uri> uriTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {\r\n                            @Override\r\n                            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {\r\n                                if (!task.isSuccessful()) {\r\n                                    throw task.getException();\r\n                                }\r\n                                return reference.getDownloadUrl();\r\n                            }\r\n                        }).addOnCompleteListener(new OnCompleteListener<Uri>() {\r\n                            @Override\r\n                            public void onComplete(@NonNull Task<Uri> task) {\r\n                                if (task.isSuccessful()) {\r\n                                    Uri downloadUri = task.getResult();\r\n\r\n                                    Map<String, String> profile = new HashMap<>();\r\n                                    profile.put(\"name\", name);\r\n                                    profile.put(\"email\", email);\r\n                                    profile.put(\"dob\", dob);\r\n                                    profile.put(\"uid\",currentUserId);\r\n                                    profile.put(\"url\", downloadUri.toString());\r\n\r\n                                    //profile.put(\"privacy\", \"Public\");\r\n\r\n                                    user.setDob(dob);\r\n                                    user.setEmail(email);\r\n                                    user.setUsername(name);\r\n                                    user.setUid(currentUserId);\r\n                                    user.setUrl(downloadUri.toString());\r\n\r\n                                    databaseReference.child(currentUserId).setValue(user);\r\n\r\n                                    documentReference.set(profile)\r\n                                            .addOnSuccessListener(new OnSuccessListener<Void>() {\r\n                                                @Override\r\n                                                public void onSuccess(Void unused) {\r\n\r\n                                                    Toast.makeText(getContext(), \"Registration Successful\", Toast.LENGTH_SHORT).show();\r\n                                                    progressDialog.dismiss();\r\n\r\n\r\n                                                    Handler handler = new Handler();\r\n                                                    handler.postDelayed(new Runnable() {\r\n                                                        @Override\r\n                                                        public void run() {\r\n                                                            Navigation.findNavController(getView()).navigate(R.id.action_registerFragment_to_navigation_home);\r\n                                                        }\r\n                                                    },2000);\r\n                                                }\r\n                                            });\r\n\r\n                                }\r\n                            }\r\n                        });\r\n\r\n\r\n\r\n                }\r\n                    else {\r\n                        progressDialog.dismiss();\r\n                        Toast.makeText(getContext(), \"\" + task.getException(), Toast.LENGTH_SHORT).show();\r\n                    }\r\n                }\r\n            });\r\n        }\r\n    }\r\n\r\n    private void sendUserToNextActivity() {\r\n        Navigation.findNavController(getView()).navigate(R.id.action_registerFragment_to_navigation_home);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/eduapp/RegisterFragment.java b/app/src/main/java/com/example/eduapp/RegisterFragment.java
+--- a/app/src/main/java/com/example/eduapp/RegisterFragment.java	
++++ b/app/src/main/java/com/example/eduapp/RegisterFragment.java	
+@@ -281,6 +281,8 @@
+                                     profile.put("dob", dob);
+                                     profile.put("uid",currentUserId);
+                                     profile.put("url", downloadUri.toString());
++                                    profile.put("lastStreakDay", "0");
++                                    profile.put("consecutiveStreakDays","0");
+ 
+                                     //profile.put("privacy", "Public");
+ 
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+deleted file mode 100644
+--- a/.idea/misc.xml	
++++ /dev/null	
+@@ -1,46 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="DesignSurface">
+-    <option name="filePathToZoomLevelMap">
+-      <map>
+-        <entry key="..\:/EduApp/app/src/main/res/layout/activity_main.xml" value="0.17239583333333333" />
+-        <entry key="..\:/EduApp/app/src/main/res/layout/activity_register.xml" value="0.27219202898550726" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/drawable/app_name_background.xml" value="0.1" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.19583333333333333" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.19583333333333333" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/activity_main.xml" value="0.1068840579710145" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.1068840579710145" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/fragment_notifications.xml" value="0.17481884057971014" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/fragment_profile.xml" value="0.17481884057971014" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/introduce_lesson.xml" value="0.17481884057971014" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/login.xml" value="0.22" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/splash_page.xml" value="0.4466666666666667" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1796875" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/mipmap-anydpi-v26/app_name.xml" value="0.1" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/mipmap-anydpi-v26/app_name_round.xml" value="0.22239583333333332" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/mipmap-anydpi-v26/mascot.xml" value="0.22239583333333332" />
+-        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/mipmap-anydpi-v26/mascot_round.xml" value="0.22239583333333332" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.38333333333333336" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.38333333333333336" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/activity_main.xml" value="0.3671875" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/activity_register.xml" value="0.3671875" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/fragment_competition.xml" value="0.3671875" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.3671875" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/fragment_edit_profile.xml" value="0.2546875" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/fragment_home.xml" value="0.30364583333333334" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/fragment_login.xml" value="0.3671875" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/fragment_notifications.xml" value="0.3671875" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/login.xml" value="0.26510416666666664" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/welcome_page.xml" value="0.20572916666666666" />
+-        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3671875" />
+-      </map>
+-    </option>
+-  </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/build/classes" />
+-  </component>
+-  <component name="ProjectType">
+-    <option name="id" value="Android" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+deleted file mode 100644
+--- a/.idea/compiler.xml	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="CompilerConfiguration">
+-    <bytecodeTargetLevel target="11" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+deleted file mode 100644
+--- a/.idea/deploymentTargetDropDown.xml	
++++ /dev/null	
+@@ -1,17 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="deploymentTargetDropDown">
+-    <targetSelectedWithDropDown>
+-      <Target>
+-        <type value="QUICK_BOOT_TARGET" />
+-        <deviceKey>
+-          <Key>
+-            <type value="VIRTUAL_DEVICE_PATH" />
+-            <value value="C:\Users\shan\.android\avd\Nexus_5X_API_29_x86.avd" />
+-          </Key>
+-        </deviceKey>
+-      </Target>
+-    </targetSelectedWithDropDown>
+-    <timeTargetWasSelectedWithDropDown value="2021-10-07T11:35:21.668679400Z" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+deleted file mode 100644
+--- a/.idea/gradle.xml	
++++ /dev/null	
+@@ -1,20 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="GradleMigrationSettings" migrationVersion="1" />
+-  <component name="GradleSettings">
+-    <option name="linkedExternalProjectsSettings">
+-      <GradleProjectSettings>
+-        <option name="testRunner" value="GRADLE" />
+-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="modules">
+-          <set>
+-            <option value="$PROJECT_DIR$" />
+-            <option value="$PROJECT_DIR$/app" />
+-          </set>
+-        </option>
+-        <option name="resolveModulePerSourceSet" value="false" />
+-      </GradleProjectSettings>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/discord.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/discord.xml b/.idea/discord.xml
+deleted file mode 100644
+--- a/.idea/discord.xml	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="DiscordProjectSettings">
+-    <option name="show" value="ASK" />
+-    <option name="description" value="" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+deleted file mode 100644
+--- a/.idea/vcs.xml	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="colorPrimary">#E68D09</color>
+    <color name="colorPrimaryDark">#FE7A0A</color>
+    <color name="colorAccent">#FEE60A</color>
+    <color name="colorBase">#F2B30F</color>
+
+    <color name="colorOrangeBaseDark">#E84C02</color>
+    <color name="yellow">#F9E000</color>
+    <color name="gray">#B5FFFEF6</color>
+    <color name="transparent">#00000000</color>
+    <color name="light_gray">#FFFCF3</color>
+    <color name="orange">#ED8F21</color>
+    <color name="purple">#882FF6</color>
+    <color name="blue">#45AAF2</color>
+    <color name="backgroundColor">#F9E000</color>
+    <color name="textColor">#000000</color>
+    <color name="red">#FD6363</color>
+    <color name="milk">#FFFDD6</color>
+    <color name="green">#41C88E</color>
+    <color name="editTextGray">#575757</color>
+    <color name="genderBg">#F9E000</color>
+    <color name="Factsbg">#FD6363</color>
+    <color name="Btn">#FF000000</color>
+    <color name="popcatBg1">#FFFACC</color>
+</resources>

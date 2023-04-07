@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "771152736870",
+    "firebase_url": "https://kidoozedatabase-default-rtdb.firebaseio.com",
+    "project_id": "kidoozedatabase",
+    "storage_bucket": "kidoozedatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771152736870:android:082e8431d7b14e2f1d73a7",
+        "android_client_info": {
+          "package_name": "com.example.eduapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771152736870-ccs8rq9rra32oqo5jb0ubjbgqithmcpj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2LEma2zO19Gft4rY9DRxLWTjG_DZdTwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771152736870-ccs8rq9rra32oqo5jb0ubjbgqithmcpj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

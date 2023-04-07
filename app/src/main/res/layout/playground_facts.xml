@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Factsbg"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="85">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="2"
+            android:text="Did you know?"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/facts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:layout_weight="20"
+            android:autoSizeTextType="uniform"
+            style="@style/factsContent"
+            android:layout_marginHorizontal="40dp"/>
+        <ImageView
+            android:id="@+id/factsPic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="30dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:orientation="vertical"
+        android:baselineAligned="false">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/wowBtn"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            app:strokeWidth="2.5dp"
+            app:strokeColor="@color/black"
+            android:paddingVertical="10dp"
+            android:text="WOW!"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+</LinearLayout>

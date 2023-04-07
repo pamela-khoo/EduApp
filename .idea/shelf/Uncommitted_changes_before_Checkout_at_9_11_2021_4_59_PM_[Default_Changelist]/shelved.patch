@@ -1,0 +1,48 @@
+Index: app/src/main/res/layout/introduce_lesson.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/introduce_lesson.xml b/app/src/main/res/layout/introduce_lesson.xml
+--- a/app/src/main/res/layout/introduce_lesson.xml	(revision 094a987232c4042b8108ac9f8385a144cf182552)
++++ b/app/src/main/res/layout/introduce_lesson.xml	(date 1636448350825)
+@@ -1,6 +1,32 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+-    android:layout_height="match_parent">
++    android:layout_height="match_parent"
++    android:id="@+id/introLesson"
++    android:orientation="vertical">
++
++    <TextView
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="Lesson"
++        style="@style/Introduce_Heading"
++        android:layout_marginTop="20dp"
++        android:paddingLeft="25dp"/>
++
++    <pl.droidsonroids.gif.GifImageView
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:adjustViewBounds="true"
++        android:src="@drawable/lesson"
++        android:layout_weight="4"/>
++
++    <TextView
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:text="Start your learning journey with Kidooze!"
++        style="@style/Introduce_Font"
++        android:layout_weight="6"
++        app:autoSizeTextType="uniform"/>
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++</LinearLayout>
+\ No newline at end of file

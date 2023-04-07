@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Kidooze</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_playground">Playground</string>
+    <string name="title_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app">KIDOOZE</string>
+    <string name="fox">Fox Superman</string>
+    <string name="back_btn">Back button</string>
+    <string name="next_btn">Next button</string>
+    <string name="playground_card1">Fact of the day</string>
+    <string name="playground_card2">Popfox</string>
+    <string name="playground_card3">Mini Game</string>
+    <string name="forgotPsw"><u>Forgot Password?</u></string>
+    <string name="HaveAcc"><u>Have an account?</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settings_label">Settings</string>
+    <string name="bgm">Background Music</string>
+    <string name="soundFX">Sound Effects</string>
+    <string name="darkMode">Dark Mode</string>
+    <string name="guide_label">Guide</string>
+    <string name="credits">Credits</string>
+    <string name="cred1">Lee Pui Shan</string>
+    <string name="cred2">Camille Lin Chi En</string>
+    <string name="cred3">Liew Shian Wei</string>
+    <string name="cred4">Rachael Mariko Kobayashi</string>
+    <string name="cred5">Pamela Khoo Su Lin</string>
+    <string name="cred6">Yeow Hui Wen</string>
+    <string name="cred7">Brian Ooi Jian Wei</string>
+    <string name="cred8">Leanne Corrine Leong</string>
+    <string name="welcome">Welcome!</string>
+    <string name="yourProgress">Here\'s your progress so far..</string>
+    <string name="lessonsCompleted">0 out of 8 lessons completed</string>
+    <string name="hardWork">That\'s a lot of hard work! Keep it up!</string>
+    <string name="streaks">Streaks</string>
+    <string name="confirm">Confirm</string>
+    <string name="streakEmoji">&#128293;</string>
+    <string name="glowingStarEmoji">🌟</string>
+</resources>

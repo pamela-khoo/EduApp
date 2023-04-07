@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/introRewards">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rewards"
+        style="@style/Introduce_Heading"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="25dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Get your rewards after you complete a course!"
+        style="@style/Introduce_Font"
+        android:adjustViewBounds="true"
+        android:layout_weight="6"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/rewards"
+        android:adjustViewBounds="true"
+        android:layout_weight="4"/>
+
+</LinearLayout>

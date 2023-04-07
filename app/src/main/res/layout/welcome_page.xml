@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/yellow"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/app_name_nobg"
+        android:padding="40dp"
+        android:scaleType="fitEnd"
+        android:adjustViewBounds="true"
+        android:layout_weight="3" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
+            <Button
+                android:id="@+id/welcome_login_btn"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:paddingVertical="10dp"
+                android:layout_gravity="center"
+                app:backgroundTint="@color/blue"
+                android:layout_marginBottom="30dp"/>
+            <Button
+                android:id="@+id/welcome_signUp_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:paddingVertical="10dp"
+                style="?attr/materialButtonOutlinedStyle"
+                android:text="Create an account"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="45"
+        android:layout_gravity="center"
+        android:scaleY="1.2"
+        android:scaleX="1.2"
+        android:adjustViewBounds="true"
+        app:srcCompat="@mipmap/mascot_background"
+        android:contentDescription="@string/fox"
+        android:layout_weight="4"/>
+
+</LinearLayout>

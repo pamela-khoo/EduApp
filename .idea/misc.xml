@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/EduApp/app/src/main/res/drawable/gradient.xml" value="0.16197916666666667" />
+        <entry key="..\:/AndroidStudioProjects/EduApp/app/src/main/res/drawable/selector.xml" value="0.16197916666666667" />
+        <entry key="..\:/AndroidStudioProjects/EduApp/app/src/main/res/layout/activity_minigame.xml" value="0.14635416666666667" />
+        <entry key="..\:/AndroidStudioProjects/EduApp/app/src/main/res/layout/activity_popcat.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/EduApp/app/src/main/res/layout/fragment_competition.xml" value="0.16197916666666667" />
+        <entry key="..\:/AndroidStudioProjects/EduApp/app/src/main/res/layout/fragment_popcat.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/EduApp/app/src/main/res/layout/fragment_profile.xml" value="0.16197916666666667" />
+        <entry key="..\:/AndroidStudioProjects/EduApp/app/src/main/res/layout/fragment_settings.xml" value="0.14583333333333334" />
+        <entry key="..\:/EduApp/app/src/main/res/layout/activity_main.xml" value="0.17239583333333333" />
+        <entry key="..\:/EduApp/app/src/main/res/layout/activity_register.xml" value="0.27219202898550726" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/drawable/app_name_background.xml" value="0.1" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/activity_main.xml" value="0.1068840579710145" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.1068840579710145" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/fragment_notifications.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/fragment_profile.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/introduce_lesson.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/login.xml" value="0.22" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/layout/splash_page.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1796875" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/mipmap-anydpi-v26/app_name.xml" value="0.1" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/mipmap-anydpi-v26/app_name_round.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/mipmap-anydpi-v26/mascot.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/shan/AndroidStudioProjects/EduApp/app/src/main/res/mipmap-anydpi-v26/mascot_round.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/activity_main.xml" value="0.3671875" />
+        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.3671875" />
+        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/fragment_home.xml" value="0.30364583333333334" />
+        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/fragment_notifications.xml" value="0.3671875" />
+        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
+        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/login.xml" value="0.26510416666666664" />
+        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/layout/welcome_page.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/shan/Documents/GitHub/EduApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3671875" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable-v24/back.xml" value="0.23333333333333334" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable-v24/ic_baseline_edit_24.xml" value="0.259375" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19583333333333333" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/back.xml" value="0.23333333333333334" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/gradient.xml" value="0.2553846153846154" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.11354166666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_arrow_back_ios_new_24.xml" value="0.1" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_arrow_back_minigame_24.xml" value="0.23333333333333334" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.11354166666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_circle_24.xml" value="0.13072916666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_circle_selected_24.xml" value="0.14635416666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1640625" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.259375" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_baseline_sports_esports_24.xml" value="0.13177083333333334" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.13177083333333334" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2553846153846154" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.15989583333333332" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2553846153846154" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_outline_email_24.xml" value="0.259375" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_volume_off_black_24dp.xml" value="0.12447916666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/ic_volume_up_black_24dp.xml" value="0.259375" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/drawable/rounded_button.xml" value="0.14635416666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/font/holtwood_one_sc.xml" value="0.125" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/font/luckiest_guy.xml" value="0.125" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/activity_minigame.xml" value="0.3333333333333333" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/activity_question.xml" value="0.1" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/activity_register.xml" value="0.2484472049689441" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/activity_right.xml" value="0.16666666666666666" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/activity_show_score.xml" value="0.16666666666666666" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/activity_tutorial.xml" value="0.14666666666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/activity_wrong.xml" value="0.14666666666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_competition.xml" value="0.1" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_credits.xml" value="0.22" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.1796875" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_edit_profile.xml" value="0.3333333333333333" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_forgot_password.xml" value="0.23076923076923078" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_guide.xml" value="0.115625" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_home.xml" value="0.14666666666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_introduce.xml" value="0.14666666666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_introduce_page1.xml" value="0.1" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_introduce_quiz.xml" value="0.11096014492753623" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_lesson.xml" value="0.22" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_notifications.xml" value="0.1796875" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_playground.xml" value="0.3333333333333333" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_popcat.xml" value="0.10778985507246377" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_settings.xml" value="0.22" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/fragment_streaks.xml" value="0.22" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/introduce_competition.xml" value="0.12" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/introduce_lesson.xml" value="0.14666666666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/introduce_pages.xml" value="0.24322916666666666" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/introduce_playground.xml" value="0.1" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/introduce_quiz.xml" value="0.22" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/introduce_rewards.xml" value="0.10666666666666667" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/login.xml" value="0.1" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/playground_facts.xml" value="0.1" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/splash_page.xml" value="0.22" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/trylay.xml" value="0.3333333333333333" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/layout/welcome_page.xml" value="0.22" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.115625" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/mipmap-anydpi-v26/mascot.xml" value="0.16875" />
+        <entry key="..\:/hciProject/eduApp/EduApp/app/src/main/res/mipmap-anydpi-v26/mascot_round.xml" value="0.12604166666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.14666666666666667" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/settings_label"
+        android:textColor="@color/textColor"
+        style="@style/Heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideback_btn"
+         />
+
+        <Button
+            android:id="@+id/credits_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/blue"
+            android:text="Credits"
+            android:layout_marginHorizontal="20dp"
+            android:paddingVertical="10dp"
+            style="@style/settings_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/darkmode_switch" />
+
+        <Button
+            android:id="@+id/rateus_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Rate Us"
+            android:backgroundTint="@color/green"
+            style="@style/settings_btn"
+            android:paddingVertical="10dp"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/credits_btn" />
+
+        <ImageButton
+            android:id="@+id/guideback_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Back_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.023"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+            tools:ignore="SpeakableTextPresentCheck,VectorDrawableCompat" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/bgm_switch"
+            android:layout_width="342dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="36dp"
+            android:checked="true"
+            android:text="@string/bgm"
+            android:textAlignment="viewStart"
+            style="@style/Subheading2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/soundfx_switch"
+            android:layout_width="344dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:checked="true"
+            android:text="@string/soundFX"
+            android:textAlignment="viewStart"
+            style="@style/Subheading2"
+            app:layout_constraintStart_toStartOf="@+id/bgm_switch"
+            app:layout_constraintTop_toBottomOf="@+id/bgm_switch" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/darkmode_switch"
+            android:layout_width="341dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/darkMode"
+            style="@style/Subheading2"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/soundfx_switch" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
